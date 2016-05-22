@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 from django import forms
-from django.http import HttpResponse
+from django.http import HttpResponse,HttpResponseRedirect
 
 import cloudinary
 import cloudinary.uploader
@@ -16,12 +16,14 @@ def home(request):
 	return HttpResponse("Welcome to the Gallery!")
 
 def upload(request):
-  context = dict( backend_form = ItemForm())
+		
+	context = dict( backend_form = ItemForm())
 
-  if request.method == 'POST':
-    form = ItemForm(request.POST, request.FILES)
-    context['posted'] = form.instance
-    if form.is_valid():
-        form.save()
+	if request.method == 'POST':
+		form = ItemForm(request.POST, request.FILES)
+		context['posted'] = form.instance
+		if form.is_valid():
+			form.save()
+			return HttpResponseRedirect('/')
 
-  return render(request, 'upload.html', context)
+	return render(request, 'upload.html', context)

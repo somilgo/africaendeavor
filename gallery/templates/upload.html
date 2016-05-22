@@ -3,7 +3,7 @@
 
 {% block body %}
   <div id='backend_upload'>
-    <form action="{% url "gallery.views.upload" %}" method="post"
+    <form action="{% url "gallery:upload" %}" method="post"
           enctype="multipart/form-data">
       {% csrf_token %}
       {{ backend_form }}
