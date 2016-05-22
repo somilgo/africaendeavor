@@ -91,10 +91,3 @@ transition-delay:.2s;
 	float:left;
 }
 
-
-/* clearfix */
-.grid:after {
-  content: '';
-  display: block;
-  clear: both;
-}

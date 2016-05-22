@@ -5,7 +5,7 @@
 <link rel="stylesheet" type="text/css" href="{% static 'gallery/home_gallery.css' %}" />
 </head>
 
-<div class="grid" data-masonry='{ "itemSelector": ".grid-item"}'>
+<div class="grid">
 {% for i in items%}
 
 <div class="grid-item">
@@ -19,3 +19,14 @@
 
 {%endfor%}
 </div>
+<script>
+var $grid = $('.grid').masonry({
+  // options
+  itemSelector: '.grid-item',
+  columnWidth: 200
+});
+// layout Masonry after each image loads
+$grid.imagesLoaded().progress( function() {
+  $grid.masonry('layout');
+});
+</script>
