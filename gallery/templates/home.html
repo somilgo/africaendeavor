@@ -1,5 +1,4 @@
 {% load staticfiles %}
-<html>
 <head>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
@@ -15,7 +14,6 @@
 }
 
 .afheader{
-	opacity: 0;
     font-family: africa;
     text-align: center;
     line-height: 160px;
@@ -23,33 +21,14 @@
     color: white;
 }
 
-.bigtitle
+body
 {
-	font-family: africa;
-    text-align: center;
-    font-size: 12vw;
-    color: white;
-    
-}
-
-header
-{
-	background: url('{% static 'gallery/bigafrica.jpg' %}') no-repeat center center fixed; 
-  -webkit-background-size: cover;
- -moz-background-size: cover;
- -o-background-size: cover;
- background-size: cover;
- height:100%;
- min-height:100%;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+	background-color: black;
 }
 
 .afheader::after {
   content: "";
-  opacity: 0;
+  opacity: 1;
   background-color:rgba(0,0,0,0.8);
   top: 0;
   left: 0;
@@ -73,10 +52,7 @@ header
 </head>
 <body style="margin:0;">
 
-
-<header>
-<div class=bigtitle>African Endeavor</div>
-</header>
+<div class=afheader style="height:160px;">African Endeavor</div>
 <div class="grid">
 {% for i in items%}
 
@@ -106,4 +82,3 @@ $grid.imagesLoaded().progress( function() {
 
 <div style="color:white;">Contact</div>
 </body>
-</html>
