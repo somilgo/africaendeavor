@@ -13,7 +13,9 @@ from .forms import ItemForm
 # Create your views here.
 
 def home(request):
-	return HttpResponse("Welcome to the Gallery!")
+	items = Item.objects.all()
+
+	return render(request, 'home.html', {'items':items})
 
 def upload(request):
 		

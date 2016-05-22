@@ -1,0 +1,21 @@
+{% load staticfiles %}
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script src="{% static "masonry.pkgd.min.js" %}"></script>
+<link rel="stylesheet" type="text/css" href="{% static 'home_gallery.css' %}" />
+</head>
+
+<div class="grid" data-masonry='{ "itemSelector": ".grid-item"}'>
+{% for i in items%}
+
+<div class="grid-item">
+<div class="hovereffect">
+        <img class="img-responsive" src='{{i.image.url}}' alt="">
+        <div class="overlay">
+           <h2>{{i.name}}</h2>
+        </div>
+    </div>
+</div>
+
+{%endfor%}
+</div>
