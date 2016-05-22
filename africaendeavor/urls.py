@@ -22,4 +22,4 @@ admin.autodiscover()
 urlpatterns = [
 	url(r'^', include('gallery.urls', namespace = "gallery")),
     url(r'^admin/', include(admin.site.urls)),
-]
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
