@@ -1,7 +1,27 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+
+from django import forms
+from django.http import HttpResponse
+
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
+from cloudinary.forms import cl_init_js_callbacks      
+from .models import Item
+from .forms import ItemForm
 # Create your views here.
 
 def home(request):
 	return HttpResponse("Welcome to the Gallery!")
 
+def upload(request):
+  context = dict( backend_form = ItemForm())
+
+  if request.method == 'POST':
+    form = ItemForm(request.POST, request.FILES)
+    context['posted'] = form.instance
+    if form.is_valid():
+        form.save()
+
+  return render(request, 'upload.html', context)

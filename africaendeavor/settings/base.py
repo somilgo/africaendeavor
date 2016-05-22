@@ -27,6 +27,15 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
+
+cloudinary.config( 
+  cloud_name = "africanconnection", 
+  api_key = "958914825352416", 
+  api_secret = "xvWUtcjl2fieui__JcMvRWdpGNM" 
+)
 
 # Application definition
 
@@ -37,6 +46,8 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'gallery',
+    'gunicorn',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -85,6 +96,8 @@ DATABASES = {
             'PORT': '',                      # Set to empty string for default.
         }
 }
+
+
 
 
 # Internationalization
