@@ -85,3 +85,4 @@ transform:translatey(0);
 transition-delay:.5s;
 }
 
+.grid-item { width: 200px; height: auto; }
