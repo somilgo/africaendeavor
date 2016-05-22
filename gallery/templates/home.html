@@ -1,12 +1,53 @@
 {% load staticfiles %}
 <head>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 <script src="https://npmcdn.com/imagesloaded@4.1/imagesloaded.pkgd.min.js"></script>
 <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 <script src="{% static "gallery/masonry.pkgd.min.js" %}"></script>
 <link rel="stylesheet" type="text/css" href="{% static 'gallery/home_gallery.css' %}" />
+
+<style> 
+@font-face {
+    font-family: africa;
+    src: url('{% static 'gallery/african.otf' %}');
+}
+
+.afheader{
+    font-family: africa;
+    text-align: center;
+    line-height: 160px;
+    font-size: 7vw;
+    color: white;
+}
+
+.afheader::after {
+  content: "";
+  opacity: 1;
+  background-color:rgba(0,0,0,0.8);
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1; 
+  height: 160px;  
+  background:
+    /* top, transparent black, faked with gradient */ 
+    linear-gradient(
+      rgba(0, 0, 0, 0.7), 
+      rgba(0, 0, 0, 0.7)
+    ),
+    /* bottom, image */
+    url('{% static 'gallery/gs.jpg' %}');
+   background-repeat:repeat-x;
+}
+</style>
+
 </head>
-<img src="{% static 'gallery/aelogo.jpg' %}">
+<body style="margin:0;">
+
+<div class=afheader style="height:160px;">African Endeavor</div>
 <div class="grid">
 {% for i in items%}
 
@@ -33,3 +74,4 @@ $grid.imagesLoaded().progress( function() {
   $grid.masonry('layout');
 });
 </script>
+</body>
