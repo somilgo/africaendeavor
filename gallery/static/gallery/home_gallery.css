@@ -85,4 +85,8 @@ transform:translatey(0);
 transition-delay:.5s;
 }
 
-.grid-item { width: 200px; height: auto; }
+/* not quite 33.3% */
+.grid-item { width: 33.2%; }
+
+/* images cover up the gap */
+.grid-item img { width: 100.5%; }
