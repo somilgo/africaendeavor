@@ -1,0 +1,82 @@
+{% load staticfiles %}
+<html>
+<head>
+<style> 
+@font-face {
+    font-family: africa;
+    src: url('{% static 'gallery/african.otf' %}');
+}
+
+.afheader{
+    font-family: africa;
+    text-align: center;
+    line-height: 160px;
+    font-size: 7vw;
+    color: white;
+}
+
+body
+{
+	background-color: black;
+}
+
+.afheader::after {
+  content: "";
+  opacity: 1;
+  background-color:rgba(0,0,0,0.8);
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1; 
+  height: 160px;  
+  background:
+    /* top, transparent black, faked with gradient */ 
+    linear-gradient(
+      rgba(0, 0, 0, 0.7), 
+      rgba(0, 0, 0, 0.7)
+    ),
+    /* bottom, image */
+    url('{% static 'gallery/gs.jpg' %}');
+   background-repeat:repeat-x;
+}
+</style>
+
+</head>
+
+<div class=afheader style="height:160px;">African Endeavor</div>
+
+<body>
+
+<img style="float:left; padding-left: 20px;" src="{{item.image.url}}"></img>
+<style>
+.details
+{
+	color:white;
+	float: left;
+	margin-left: 40px;
+	max-width: 50%;
+}
+.details h2
+{
+	font-size: 50px;
+}
+.details b, p
+{
+	font-size: 25px;
+	line-height: 35px;
+}
+</style>
+
+<span class='details'>
+<h2>{{item.name}}</h2>
+<hr>
+<p><b>Price: </b>${{item.price}}<br>
+<b>Description: </b>{{item.description}}
+ But I'm also going to add to the item description quite a bit to se what's up
+</p>
+
+</span>
+</body>
+</html>

@@ -47,6 +47,11 @@ body
     url('{% static 'gallery/gs.jpg' %}');
    background-repeat:repeat-x;
 }
+
+.grid {
+  margin: 0 auto;
+}
+
 </style>
 
 </head>
@@ -55,15 +60,16 @@ body
 <div class=afheader style="height:160px;">African Endeavor</div>
 <div class="grid">
 {% for i in items%}
-
+<a href="/{{i.pk}}">
 <div class="grid-item">
 <div class="hovereffect">
-        <img class="img-responsive" src='{{i.image.url}}' alt="">
+        <img class="img-responsive" src='{{i.image.url}}' alt="" >
         <div class="overlay">
            <h2>{{i.name}}</h2>
         </div>
     </div>
 </div>
+</a>
 
 {%endfor%}
 </div>
@@ -71,7 +77,7 @@ body
 var $grid = $('.grid').masonry({
   // options
   itemSelector: '.grid-item',
-  percentPosition: true,
+  fitWidth: true
 
 });
 // layout Masonry after each image loads

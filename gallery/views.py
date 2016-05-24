@@ -17,6 +17,12 @@ def home(request):
 
 	return render(request, 'home.html', {'items':items})
 
+def item_detail(request, pk):
+	item = Item.objects.get(pk=pk)
+
+	return render(request, 'item.html', {'item':item})
+
+
 def upload(request):
 		
 	context = dict( backend_form = ItemForm())
