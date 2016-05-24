@@ -49,36 +49,56 @@ body
 
 <body>
 
-<img style="float:left; padding-left: 20px;" src="{{item.image.url}}"></img>
+
 <style>
 .details
 {
 	color:white;
 	float: left;
 	margin-left: 40px;
-	max-width: 50%;
+	width: 58%;
 	font-family: 'Open Sans', sans-serif;
 }
 .details h2
 {
-	font-size: 50px;
+	font-size: 4vw;
 	margin-top: 0px;
 }
 .details b, p
 {
-	font-size: 25px;
-	line-height: 35px;
+	font-size: 2vw;
+	line-height: 3vw;
 }
-
-@media only screen 
-and (max-width : 320px) {
 img
 {
-	width:100%;
+	float:left; 
+	padding-left: 20px;
+	 padding-bottom: 20px; 
+	 width: 33%;
+}
+@media all
+and (max-width : 600px) {
+img
+{
+	width:80%;
+}
+.details h2
+{
+	font-size: 6vw;
+	
+}
+.details b, p
+{
+	font-size: 4vw;
+	line-height: 5vw;
+}
+.details
+{
+	width: 80%;
 }
 }
 </style>
-
+<img src="{{item.image.url}}"></img>
 <span class='details'>
 <h2>{{item.name}}</h2>
 <hr>
