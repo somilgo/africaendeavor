@@ -8,4 +8,5 @@ urlpatterns = [
 	url(r'^login/$', views.auth, name='auth'),
 	url(r'^success/$', views.success, name='success'),
 	url(r'^(?P<pk>[0-9]+)/$', views.item_detail, name = 'item_detail'),
+	url(r'^(?P<pk>[0-9]+)/delete/$', views.delete, name = 'delete'),
 ]

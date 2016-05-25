@@ -19,12 +19,32 @@ def home(request):
 
 def item_detail(request, pk):
 	item = Item.objects.get(pk=pk)
+	request.session['post_log'] = '/delete'
+	auth=False
+	try:
+		if request.session['auth'] != "Tru":
+			return HttpResponseRedirect('/login')
+		else:
+			auth = True
+	except:
+		pass
 
-	return render(request, 'item.html', {'item':item})
+	return render(request, 'item.html', {'item':item, 'auth':auth})
+
+def delete(request, pk):
+	try:
+		if request.session['auth'] != "Tru":
+			return HttpResponseRedirect('/login')
+	except:
+		return HttpResponseRedirect('/login')
+	item = Item.objects.get(pk=pk)
+	result = cloudinary.uploader.destroy(item.image.public_id)
+	item.delete()
+	return HttpResponseRedirect('/')
 
 
 def upload(request):
-
+	request.session['post_log'] = '/upload'
 	try:
 		if request.session['auth'] != "Tru":
 			return HttpResponseRedirect('/login')
@@ -48,7 +68,10 @@ def auth(request):
 	if form.is_valid():
 		password = form.cleaned_data['password']
 		request.session['auth'] = "Tru"
-		return HttpResponseRedirect('/upload')
+		try:
+			return HttpResponseRedirect(request.session['post_log'])
+		except:
+			return HttpResponseRedirect('/')
 	return render(request, 'login.html', {'form':form})
 
 def success(request):

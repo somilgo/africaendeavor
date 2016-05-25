@@ -110,7 +110,9 @@ img
 <hr>
 <p class="pdetails"><b>Price: </b>${{item.price}}<br>
 <b>Description: </b>{{item.description}}
-</p>
+</p>{% if auth%}
+<p><b><a href='/{{item.pk}}/delete'>Delete</a></b></p>
+{% endif %}
 <br>
 </span>
 
