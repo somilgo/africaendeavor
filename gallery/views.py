@@ -9,7 +9,7 @@ import cloudinary.uploader
 import cloudinary.api
 from cloudinary.forms import cl_init_js_callbacks      
 from .models import Item
-from .forms import ItemForm
+from .forms import ItemForm, LogIn
 # Create your views here.
 
 def home(request):
@@ -24,7 +24,13 @@ def item_detail(request, pk):
 
 
 def upload(request):
-		
+
+	try:
+		if request.session['auth'] != "Tru":
+			return HttpResponseRedirect('/login')
+	except:
+		return HttpResponseRedirect('/login')
+
 	context = dict( backend_form = ItemForm())
 
 	if request.method == 'POST':
@@ -32,6 +38,18 @@ def upload(request):
 		context['posted'] = form.instance
 		if form.is_valid():
 			form.save()
-			return HttpResponseRedirect('/')
+			return HttpResponseRedirect('/success')
 
 	return render(request, 'upload.html', context)
+
+def auth(request):
+	form = LogIn(request.POST or None)
+
+	if form.is_valid():
+		password = form.cleaned_data['password']
+		request.session['auth'] = "Tru"
+		return HttpResponseRedirect('/upload')
+	return render(request, 'login.html', {'form':form})
+
+def success(request):
+	return render(request, "success.html")
