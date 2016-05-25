@@ -1,18 +1,24 @@
 {% load staticfiles %}
 <html>
 <head>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+<link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="{% static 'gallery/footff.css' %}" />
 <style> 
+
 @font-face {
     font-family: africa;
     src: url('{% static 'gallery/african.otf' %}');
 }
 
-.afheader{
+.afheader, .headlink{
     font-family: africa;
     text-align: center;
     line-height: 160px;
     font-size: 7vw;
     color: white;
+    text-decoration: none;
 }
 
 body
@@ -44,8 +50,8 @@ body
 </style>
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 </head>
-
-<div class=afheader style="height:160px;">African Endeavor</div>
+<body style="margin:0;">
+<a class= 'headlink' href='/'><div class=afheader style="height:160px;">African Endeavor</div></a>
 
 <body>
 
@@ -64,7 +70,7 @@ body
 	font-size: 4vw;
 	margin-top: 0px;
 }
-.details b, p
+.details b, .pdetails
 {
 	font-size: 2vw;
 	line-height: 3vw;
@@ -87,7 +93,7 @@ img
 	font-size: 6vw;
 	
 }
-.details b, p
+.details b, .pdetails
 {
 	font-size: 4vw;
 	line-height: 5vw;
@@ -102,11 +108,52 @@ img
 <span class='details'>
 <h2>{{item.name}}</h2>
 <hr>
-<p><b>Price: </b>${{item.price}}<br>
+<p class="pdetails"><b>Price: </b>${{item.price}}<br>
 <b>Description: </b>{{item.description}}
- But I'm also going to add to the item description quite a bit to se what's up
 </p>
-
+<br>
 </span>
+
+<div style="clear:both"><footer class="footer-distributed">
+
+			<div class="footer-left">
+
+				<h3>African<span>Connection</span></h3>
+
+				<p class="footer-company-name">African Connection &copy; 2016</p>
+			</div>
+
+			<div class="footer-center">
+
+				<div>
+					<i class="fa fa-map-marker"></i>
+					<p><span>102 South Main Street</span> New Hope, PA 18938</p>
+				</div>
+
+				<div>
+					<i class="fa fa-phone"></i>
+					<p style="line-height: 20px;"">(267)740-2253 (Store)<br>(813)369-4360 (Cell)</p>
+
+				</div>
+
+				<div>
+					<i class="fa fa-envelope"></i>
+					<p><a href="mailto:support@company.com">support@company.com</a></p>
+				</div>
+
+			</div>
+
+			<div class="footer-right">
+
+				<p class="footer-company-about">
+					<span>About the company</span>
+					Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce euismod convallis velit, eu auctor lacus vehicula sit amet.
+				</p>
+
+
+			</div>
+
+		</footer></div>
+
 </body>
 </html>

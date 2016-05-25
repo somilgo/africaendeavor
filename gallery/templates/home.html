@@ -6,7 +6,9 @@
 <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 <script src="{% static "gallery/masonry.pkgd.min.js" %}"></script>
 <link rel="stylesheet" type="text/css" href="{% static 'gallery/home_gallery.css' %}" />
-
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+<link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="{% static 'gallery/footff.css' %}" />
 <style> 
 @font-face {
     font-family: africa;
@@ -23,7 +25,7 @@
 
 body
 {
-	background-color: black;
+	background-color:black;
 }
 
 .afheader::after {
@@ -81,5 +83,44 @@ $grid.imagesLoaded().progress( function() {
 });
 </script>
 
-<div style="color:white;">Contact</div>
+<footer class="footer-distributed">
+
+			<div class="footer-left">
+
+				<h3>African<span>Endeavor</span></h3>
+
+				<p class="footer-company-name">African Endeavor &copy; 2016</p>
+			</div>
+
+			<div class="footer-center">
+
+				<div>
+					<i class="fa fa-map-marker"></i>
+					<p><span>102 South Main Street</span> New Hope, PA 18938</p>
+				</div>
+
+				<div>
+					<i class="fa fa-phone"></i>
+					<p style="line-height: 20px;"">(267)740-2253 (Store)<br>(813)369-4360 (Cell)</p>
+
+				</div>
+
+				<div>
+					<i class="fa fa-envelope"></i>
+					<p><a href="mailto:support@company.com">support@company.com</a></p>
+				</div>
+
+			</div>
+
+			<div class="footer-right">
+
+				<p class="footer-company-about">
+					<span>About the company</span>
+					Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce euismod convallis velit, eu auctor lacus vehicula sit amet.
+				</p>
+
+
+			</div>
+
+		</footer>
 </body>
