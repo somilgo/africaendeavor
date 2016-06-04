@@ -19,7 +19,7 @@ def home(request):
 
 def item_detail(request, pk):
 	item = Item.objects.get(pk=pk)
-	request.session['post_log'] = '/delete'
+	request.session['post_log'] = '/'
 	auth=False
 	try:
 		if request.session['auth'] != "Tru":
