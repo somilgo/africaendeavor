@@ -28,8 +28,25 @@ def item_detail(request, pk):
 			auth = True
 	except:
 		pass
-
+	print auth
 	return render(request, 'item.html', {'item':item, 'auth':auth})
+
+def edit_item(request,pk):
+	try:
+		if request.session['auth'] != "Tru":
+			return HttpResponseRedirect('/login')
+	except:
+		return HttpResponseRedirect('/login')
+	item = Item.objects.get(pk=pk)
+	if request.method == 'POST':
+		form = ItemForm(request.POST, instance=item)
+		if form.is_valid():
+			form.save()
+			return HttpResponseRedirect('/{}/'.format(pk))
+	else:
+		form = ItemForm(instance=item)
+
+	return render(request, 'edit.html', {'form': form, 'pk':pk})
 
 def delete(request, pk):
 	try:
